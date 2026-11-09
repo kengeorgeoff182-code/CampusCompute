@@ -12,7 +12,10 @@ Worker failures are **simulated** and are labelled as such in the output.
 
 ## Prerequisites
 
-* Ubuntu or WSL Ubuntu (developed and tested on Ubuntu 24.04, GCC 13.3, GNU Make 4.3), `gcc`, GNU `make`
+* Ubuntu or WSL Ubuntu, `gcc`, and GNU `make`.
+  Originally developed and tested on Ubuntu 24.04 with GCC 13.3
+  and GNU Make 4.3. Subsequently built and exercised on WSL Ubuntu
+  26.04 with GCC 15.2.
 * `python3` (optional: only for the independent reference checks in `tests/`)
 * `zip` / `unzip` (optional: only for `make dist`)
 
@@ -175,12 +178,17 @@ make verify-dist    # list the archive and run an integrity check (unzip -t)
 
 ```
 include/   header files, one per module
-src/       main.c (CLI)  job_manager.c  scheduler.c  sched_report.c  logger.c
-           logger_demo.c  ipc.c  banker.c  worker.c  resource_limits.c  util.c
-tests/     unit_tests.c  run_tests.sh  ref_sched.py  data/
+src/       C source files
+tests/     unit tests, integration tests, reference checks and test data
 logs/      log files written by the program
-Makefile   README.md
+build/     generated object files, dependency files and test executable
+Makefile   build, test, cleanup and packaging targets
+README.md  project documentation
 ```
+The `build/` directory is generated automatically by `make`.
+It is removed by `make clean` and is not included in the submission ZIP.
+The `docs/` directory contains private development and submission
+working notes and is not required to build or run the application.
 
 ## Known limits
 
