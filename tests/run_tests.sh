@@ -5,10 +5,18 @@
 
 BIN="${1:-./campuscompute}"
 DATA="tests/data"
+
 OUT="$(mktemp /tmp/cc_test_out.XXXXXX)"
 ERR="$(mktemp /tmp/cc_test_err.XXXXXX)"
+BANKER_OUT="$(mktemp /tmp/cc_banker_safe.XXXXXX)"
+
 pass=0; fail=0
-trap 'rm -f "$OUT" "$ERR"' EXIT
+
+cleanup() {
+    rm -f "$OUT" "$ERR" "$BANKER_OUT" "${LOGF:-}"
+}
+
+trap cleanup EXIT
 
 if [ ! -x "$BIN" ]; then
     echo "error: binary '$BIN' not found - run 'make' first" >&2
@@ -100,9 +108,9 @@ leftover_check "after ipc failure path"
 
 echo "== FR5: Banker's algorithm =="
 run "banker safe file"   0 -- "$BIN" banker --file $DATA/banker_safe.txt; has_out "RESULT: SAFE"; has_out "re-verification of the sequence: PASSED"
-cp "$OUT" /tmp/cc_banker_safe.out
+cp "$OUT" "$BANKER_OUT"
 if command -v python3 >/dev/null 2>&1; then
-    if python3 - "$DATA/banker_safe.txt" /tmp/cc_banker_safe.out <<'PY'
+    if python3 - "$DATA/banker_safe.txt" "$BANKER_OUT" <<'PY'
 import re, sys
 toks = [t for l in open(sys.argv[1]) for t in l.split('#')[0].split()]
 n, m = int(toks[1]), int(toks[3]); i = toks.index('available') + 1
