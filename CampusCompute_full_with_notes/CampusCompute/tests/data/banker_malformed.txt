@@ -1,3 +1,0 @@
-processes two
-resources 1
-available 3

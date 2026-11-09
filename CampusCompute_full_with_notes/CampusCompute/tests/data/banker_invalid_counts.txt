@@ -1,4 +1,0 @@
-# 99 processes exceeds the supported maximum.
-processes 99
-resources 3
-available 1 1 1
