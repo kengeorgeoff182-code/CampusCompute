@@ -69,7 +69,9 @@ Examples:
 ```
 
 Exit status: `0` success, `1` a check failed, `2` bad command line or malformed
-input (with a message on stderr). The program never crashes on bad input.
+input (with a message on stderr). 
+The program validates command-line arguments and input data, and reports
+errors with appropriate exit statuses for the tested invalid-input cases.
 
 ## Design decisions
 
