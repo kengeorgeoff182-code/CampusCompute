@@ -32,9 +32,8 @@ unit-test section (U: `tests/unit_tests.c`) or integration group (I:
 | Simulated failures clearly identified | every simulated failure prints "SIMULATED ... not a real fault" |
 | Clean up only own resources | per-user shm/semaphore names; own temp files; own logs |
 | Git/GitHub not required | not used |
-| Real SRN in every terminal prompt | **you must do this** (see SCREENSHOTS.md) |
-| Genuine screenshots S01-S24, one line each, no edits | **you must capture these** |
-| One PDF named `<SRN>.pdf`, no separate report | `docs/build_pdf.py` assembles it from your real screenshots |
+| screenshots S01-S24, one line each, no edits |
+| One PDF named `<SRN>.pdf`, no separate report | 
 | ZIP of source + build files | `make dist` (README included, docs/ excluded) |
 
 ## Decisions where the spec leaves a choice
