@@ -10,7 +10,7 @@ campuscompute_tsan
 
 # Generated logs
 logs/*.log
-!logs/.gitkeep
+!logs/.keep
 
 # Distribution and submission archives
 dist/
