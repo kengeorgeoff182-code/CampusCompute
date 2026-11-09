@@ -50,3 +50,21 @@
 2026-11-09 03:09:05.006 [INFO ] [demo] FR7  Cleanup verification               PASS
 2026-11-09 03:09:05.015 [INFO ] [demo] overall result: PASS
 # --- session end: enqueued=16 written=16 full_waits=8 empty_waits=0 ---
+# --- CampusCompute log session start (pid 18009, queue capacity 8) ---
+2026-11-09 04:11:24.245 [INFO ] [demo] integrated demonstration finished; 14 stages
+2026-11-09 04:11:24.245 [INFO ] [demo] FR2  FCFS scheduling                    PASS
+2026-11-09 04:11:24.245 [INFO ] [demo] FR2  Round Robin scheduling             PASS
+2026-11-09 04:11:24.245 [INFO ] [demo] FR2  Priority scheduling                PASS
+2026-11-09 04:11:24.245 [INFO ] [demo] FR2  Scheduling comparison              PASS
+2026-11-09 04:11:24.245 [INFO ] [demo] FR3  Producer-consumer logger           PASS
+2026-11-09 04:11:24.245 [INFO ] [demo] FR4  Shared memory + semaphore IPC      PASS
+2026-11-09 04:11:24.245 [INFO ] [demo] FR5  Banker's safe state                PASS
+2026-11-09 04:11:24.245 [INFO ] [demo] FR5  Banker's unsafe state              PASS
+2026-11-09 04:11:24.245 [INFO ] [demo] FR6  Worker: normal completion          PASS
+2026-11-09 04:11:24.248 [INFO ] [demo] FR6  Worker: simulated exit failure     PASS
+2026-11-09 04:11:24.251 [INFO ] [demo] FR6  Worker: simulated signal failure   PASS
+2026-11-09 04:11:24.254 [INFO ] [demo] FR6  Worker pool (waitpid -1)           PASS
+2026-11-09 04:11:24.256 [INFO ] [demo] FR7  Resource limits (3 kinds)          PASS
+2026-11-09 04:11:24.259 [INFO ] [demo] FR7  Cleanup verification               PASS
+2026-11-09 04:11:24.262 [INFO ] [demo] overall result: PASS
+# --- session end: enqueued=16 written=16 full_waits=8 empty_waits=0 ---

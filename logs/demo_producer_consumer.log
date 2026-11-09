@@ -32,3 +32,20 @@
 2026-11-09 03:09:03.274 [INFO ] [producer-2] submitted job J205 (msg 5/5)
 2026-11-09 03:09:03.303 [INFO ] [producer-1] submitted job J105 (msg 5/5)
 # --- session end: enqueued=15 written=15 full_waits=11 empty_waits=1 ---
+# --- CampusCompute log session start (pid 18009, queue capacity 3) ---
+2026-11-09 04:11:22.379 [INFO ] [producer-2] submitted job J201 (msg 1/5)
+2026-11-09 04:11:22.379 [INFO ] [producer-1] submitted job J101 (msg 1/5)
+2026-11-09 04:11:22.379 [INFO ] [producer-3] submitted job J301 (msg 1/5)
+2026-11-09 04:11:22.381 [INFO ] [producer-2] submitted job J202 (msg 2/5)
+2026-11-09 04:11:22.381 [INFO ] [producer-3] submitted job J302 (msg 2/5)
+2026-11-09 04:11:22.381 [INFO ] [producer-1] submitted job J102 (msg 2/5)
+2026-11-09 04:11:22.383 [INFO ] [producer-2] submitted job J203 (msg 3/5)
+2026-11-09 04:11:22.411 [INFO ] [producer-3] submitted job J303 (msg 3/5)
+2026-11-09 04:11:22.442 [INFO ] [producer-1] submitted job J103 (msg 3/5)
+2026-11-09 04:11:22.472 [INFO ] [producer-2] submitted job J204 (msg 4/5)
+2026-11-09 04:11:22.500 [INFO ] [producer-3] submitted job J304 (msg 4/5)
+2026-11-09 04:11:22.529 [INFO ] [producer-1] submitted job J104 (msg 4/5)
+2026-11-09 04:11:22.557 [INFO ] [producer-2] submitted job J205 (msg 5/5)
+2026-11-09 04:11:22.586 [INFO ] [producer-3] submitted job J305 (msg 5/5)
+2026-11-09 04:11:22.614 [INFO ] [producer-1] submitted job J105 (msg 5/5)
+# --- session end: enqueued=15 written=15 full_waits=11 empty_waits=1 ---
