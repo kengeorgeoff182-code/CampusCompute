@@ -27,7 +27,7 @@ unit-test section (U: `tests/unit_tests.c`) or integration group (I:
 
 | Rule | Status |
 |---|---|
-| C on Linux/Ubuntu/WSL; builds from source with Makefile | done; verified on Ubuntu 24.04 / GCC 13.3 |
+| C on Linux/Ubuntu/WSL; builds from source with Makefile | verified on Ubuntu 24.04 / GCC 13.3 and WSL Ubuntu 26.04 / GCC 15.2 |
 | No hard-coded output; repeatable test inputs | results computed at run time; fixed data in `tests/data/`; independent Python reference |
 | Simulated failures clearly identified | every simulated failure prints "SIMULATED ... not a real fault" |
 | Clean up only own resources | per-user shm/semaphore names; own temp files; own logs |
