@@ -1,0 +1,10 @@
+# Process 1 holds 4 instances but declared a maximum of 3: invalid.
+processes 2
+resources 1
+available 5
+max
+  6
+  3
+allocation
+  1
+  4
