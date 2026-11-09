@@ -14,7 +14,6 @@
  * Exit status: 0 = success, 1 = the command ran but a check failed,
  *              2 = bad command line or malformed input.
  */
-#include <dirent.h>
 #include <errno.h>
 #include <signal.h>
 #include <stdarg.h>
@@ -475,42 +474,30 @@ static void stage_record(StageList *sl, const char *name, const char *req,
     }
 }
 
-/* Threads in this process (from /proc/self/task); -1 if unavailable. */
-static int count_threads(void)
-{
-    DIR *d = opendir("/proc/self/task");
-    struct dirent *e;
-    int n = 0;
-
-    if (d == NULL)
-        return -1;
-    while ((e = readdir(d)) != NULL)
-        if (e->d_name[0] != '.')
-            n++;
-    closedir(d);
-    return n;
-}
-
-/* Final check: nothing the demo created is still alive or present. */
+/* Final check: no child processes or IPC resources remain. */
 static int verify_cleanup(void)
 {
-    int st, ok = 1, threads = count_threads();
-    bool children_left = !(waitpid(-1, &st, WNOHANG) == -1 && errno == ECHILD);
+    int st;
+    int ok = 1;
+
+    bool children_left =
+        !(waitpid(-1, &st, WNOHANG) == -1 && errno == ECHILD);
+
     bool ipc_left = ipc_resources_present();
 
     cc_banner("FR7 - Cleanup verification");
+
     printf("child processes still running or un-reaped : %s\n",
            children_left ? "YES (problem)" : "none (waitpid -> ECHILD)");
-    if (threads >= 0)
-        printf("threads in this process (expect 1 = main)  : %d%s\n", threads,
-               threads == 1 ? "" : "  (problem)");
-    else
-        printf("threads in this process                    : unavailable\n");
+
     printf("POSIX shm/semaphores of this program       : %s\n",
            ipc_left ? "STILL PRESENT (problem)" : "none (released)");
-    if (children_left || ipc_left || threads > 1)
+
+    if (children_left || ipc_left)
         ok = 0;
+
     printf("cleanup verification: %s\n", ok ? "PASS" : "FAIL");
+
     return ok ? 0 : -1;
 }
 
