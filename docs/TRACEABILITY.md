@@ -45,10 +45,3 @@ unit-test section (U: `tests/unit_tests.c`) or integration group (I:
 * IPC primitive: named POSIX semaphores (counting, bounded buffer), not a mutex.
 * Limits: three demonstrated (FSIZE, NOFILE, CPU), each in a forked child.
 * A simulated IPC fault (consumer exits) is reported as a failed run (exit 1).
-
-## Unverified in this build environment
-
-* WSL Ubuntu (tested on a native Ubuntu 24.04 container).
-* Screenshots, the final PDF and the submission ZIP *as you will capture them*;
-  only the tooling was tested, using throw-away dummy images that are not
-  included anywhere.
